@@ -14,7 +14,7 @@ import subprocess as sp
 from collections import defaultdict
 import pdb 
 from numpy import genfromtxt
-np.set_printoptions(threshold=np.nan)
+#np.set_printoptions(threshold=np.nan)
 
 VERBOSE=0
 INST_SCALE_FACTOR = 2
@@ -28,13 +28,13 @@ def get_stressmark_inst_res(cov_list, res_list, inst_index, tot_cov_list, tot_re
     #if VERBOSE:
     #	print(tot_sw_list.values())
     #Find list of instructions with max switching
-    max_res_list = [inst for inst,val in tot_res_list.iteritems() if val==max_res]
+    max_res_list = [inst for inst,val in tot_res_list.items() if val==max_res]
 
     #Check which insts with max switching have highest coverwge - use 1st inst in case of tie
     max_cov = max([tot_cov_list[inst] for inst in max_res_list])
     tmp_list=dict(zip(max_res_list,[tot_cov_list[inst] for inst in max_res_list]))
-    #max_cov_list = [inst for inst,val in tot_cov_list.iteritems() if val==max_cov]
-    max_cov_list = [inst for inst,val in tmp_list.iteritems() if val==max_cov]
+    #max_cov_list = [inst for inst,val in tot_cov_list.items() if val==max_cov]
+    max_cov_list = [inst for inst,val in tmp_list.items() if val==max_cov]
 
     #Choose instruction with max coverage in case of tie.. if coverage is equal, choose a random index
     random_cov_index=random.randint(0,len(max_cov_list)-1)  

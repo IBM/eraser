@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEBUG=0
+DEBUG=1
 
 if [ "$#" -ne 5 ]; then
     echo "Usage: $0 <SERMINER_OUTPUT_DIR> <STRESSMARK_OUT_DIR> <RESIDENCY_THRESHOLD> <NUM_PERMUTATIONS> <DEPENDENCY DISTANCE>" >&2

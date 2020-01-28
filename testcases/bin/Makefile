@@ -1,7 +1,6 @@
 abs_top_srcdir := ${ERASER_HOME}/microprobe/targets/riscv/examples
 include $(abs_top_srcdir)/Makefrag
 
-#src_dir := dd0
 include $(src_dir)/tests.d
 
 XLEN := 64

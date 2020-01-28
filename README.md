@@ -221,7 +221,7 @@ session in a new shell.
      For example:
 
      ```
-     $SERMINER_HOME/src/gen_mpseq_cmd_riscv.sh /tmp/VCD_OUT /tmp/VCD_OUT/stressmarks 0.99 10 0
+     $SERMINER_HOME/src/gen_mpseq_cmd_riscv.sh /tmp/VCD_OUT/res_th_0.99 /tmp/VCD_OUT/stressmarks 0.99 10 0
      ```
 
   2. Run the generated command in the Microprobe environment, which should be already
