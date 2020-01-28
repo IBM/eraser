@@ -23,6 +23,7 @@ fi
 
 if [ ! -e "$eraserpath/microprobe/venv" ]; then
     cd "$eraserpath/microprobe"
+    echo "numpy" >> ./requirements.txt
     ./bootstrap_environment.sh 3
     cd "$eraserpath"
 fi
