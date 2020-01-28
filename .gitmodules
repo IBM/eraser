@@ -1,0 +1,12 @@
+[submodule "rocket-chip"]
+	path = rocket-chip
+	url = https://github.com/chipsalliance/rocket-chip.git
+[submodule "microprobe"]
+	path = microprobe
+	url = https://github.com/IBM/microprobe.git
+[submodule "chiffre"]
+	path = chiffre
+	url = https://github.com/IBM/chiffre.git
+[submodule "rocket-tools"]
+	path = rocket-tools
+	url = https://github.com/freechipsproject/rocket-tools

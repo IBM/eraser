@@ -1,0 +1,19 @@
+language: shell
+version: ~> 1.0
+os:
+    - linux
+cache:
+    apt: true
+dist: xenial
+git:
+    submodules: false
+addons:
+    apt:
+        packages:
+            - shellcheck
+notifications:
+  email:
+    on_success: change 
+    on_failure: always 
+script:
+    - shellcheck -e SC2207,SC1090,SC1091 -s bash eraser_setenv $(find $(git ls-tree -r HEAD --name-only) $(git status --porcelain --untracked-files=no | sed "s/^ *//" | tr -s ' ' | cut -d " " -f 2 ) -maxdepth 0 -type f -name \*.sh | sort | uniq) 
