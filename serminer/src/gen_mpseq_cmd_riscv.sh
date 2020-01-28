@@ -112,4 +112,4 @@ else
 fi
 
 #gm=$inst_weights_list
-echo "python riscv_ipc_seq.py --dependency-distances $DEP_DISTANCE --loop-size 10000 --instructions $stressmark_insts_list --output-dir $STRESSMARK_OUT_DIR --num_permutations $NUM_PERMUTATIONS --microbenchmark_name SM_TH_${RES_THRESHOLD} &"
+echo "python $MICROPROBE_HOME/targets/riscv/examples/riscv_ipc_seq.py --dependency-distances $DEP_DISTANCE --loop-size 10000 --instructions $stressmark_insts_list --output-dir $STRESSMARK_OUT_DIR --num_permutations $NUM_PERMUTATIONS --microbenchmark_name SM_TH_${RES_THRESHOLD} &"
