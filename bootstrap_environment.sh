@@ -22,8 +22,8 @@ if [ ! -f "$eraserpath/rocket-tools-install/bin/riscv64-unknown-elf-gcc" ]; then
 fi
 
 if [ ! -e "$eraserpath/microprobe/venv" ]; then
-    cd "$eraserpath/microprobe" 
-    ./bootstrap_environment.sh 
+    cd "$eraserpath/microprobe"
+    ./bootstrap_environment.sh 3
     cd "$eraserpath"
 fi
 
