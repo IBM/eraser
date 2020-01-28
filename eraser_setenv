@@ -1,4 +1,4 @@
-ERASER_HOME=$(pwd)
+ERASER_HOME="$(pwd)"
 export ERASER_HOME
 export SERMINER_HOME=${ERASER_HOME}/serminer
 export SERMINER_CONFIG_HOME=${SERMINER_HOME}/config
@@ -11,17 +11,18 @@ export ROCKET_RTL_MODULE="TOP.TestHarness.ldut.tile.core." #May need to be modif
 
 # Finished setting envs
 export ERASER_SETENV=0
+ERROR=0
 
-if [ ! -e "$SERMINER_HOME" ]; then
+if [ ! -e "$SERMINER_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER SERMINER dependency '$SERMINER_HOME' not properly installed"
-    exit 1
+    ERROR=1
 fi
 
-if [ ! -e "$MICROPROBE_HOME" ]; then
+if [ ! -e "$MICROPROBE_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER MICROPROBE dependency '$MICROPROBE_HOME' not properly installed"
-    exit 1
+    ERROR=1
 else
-    if [ ! -e "$MICROPROBE_HOME/venv" ]; then
+    if [ ! -e "$MICROPROBE_HOME/venv" ] && [ "$ERROR" -eq 0 ]; then
         echo "ERASER MICROPROBE dependency '$MICROPROBE_HOME' not properly installed"
     else
         cd "$MICROPROBE_HOME" || true
@@ -30,41 +31,43 @@ else
     fi
 fi
 
-if [ ! -e "$CHIFFRE_HOME" ]; then
+if [ ! -e "$CHIFFRE_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER CHIFFRE dependency '$CHIFFRE_HOME' not properly installed"
-    exit 1
+    ERROR=1
 fi
 
-if [ ! -e "$ROCKETCHIP_HOME" ]; then
+if [ ! -e "$ROCKETCHIP_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER ROCKETCHIP dependency '$ROCKETCHIP_HOME' not properly installed"
-    exit 1
+    ERROR=1
 else
-    if [ ! -x "$ROCKETCHIP_HOME/emulator/emulator-freechips.rocketchip.system-DefaultConfig-debug" ]; then
+    if [ ! -x "$ROCKETCHIP_HOME/emulator/emulator-freechips.rocketchip.system-DefaultConfig-debug" ] && [ "$ERROR" -eq 0 ]; then
         echo "ROCKETCHIP emulator not compiled ('$ROCKETCHIP_HOME/emulator/emulator-freechips.rocketchip.system-DefaultConfig-debug' missing)"
-        exit 1
+        ERROR=1
     fi
 fi
 
-if [ ! -e "$ROCKETTOOLS_HOME" ]; then
+if [ ! -e "$ROCKETTOOLS_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER ROCKETTOOLS dependency '$ROCKETTOOLS_HOME' not properly installed"
-    exit 1
+    ERROR=1
 fi
 
-if [ ! -e "$ROCKETTOOLSINSTALL_HOME" ]; then
+if [ ! -e "$ROCKETTOOLSINSTALL_HOME" ] && [ "$ERROR" -eq 0 ]; then
     echo "ERASER ROCKETTOOLS installation in '$ROCKETTOOLSINSTALL_HOME' not properly installed"
-    exit 1
+    ERROR=1
 fi
 
-export ERASER_SETENV=1
+if [ "$ERROR" -eq 0 ]; then
+    export ERASER_SETENV=1
 
-echo ""
-echo "  #######  ######       ####      #####    #######  ######  "
-echo "  #        #     #     #    #    #     #   #        #     # "
-echo "  #        #     #    #      #   #         #        #     # "
-echo "  #######  #   ##    ##########   #####    #######  #   ##  "
-echo "  #        #    #    #        #        #   #        #    #  "
-echo "  #        #     #   #        #  #     #   #        #     # "
-echo "  #######  #      #  #        #   #####    #######  #      # "
-echo ""
+    echo ""
+    echo "  #######  ######       ####      #####    #######  ######  "
+    echo "  #        #     #     #    #    #     #   #        #     # "
+    echo "  #        #     #    #      #   #         #        #     # "
+    echo "  #######  #   ##    ##########   #####    #######  #   ##  "
+    echo "  #        #    #    #        #        #   #        #    #  "
+    echo "  #        #     #   #        #  #     #   #        #     # "
+    echo "  #######  #      #  #        #   #####    #######  #      # "
+    echo ""
 
-echo "ERASER Environment set! "
+    echo "ERASER Environment set! "
+fi
