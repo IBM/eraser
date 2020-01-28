@@ -33,4 +33,4 @@ if [ ! -x "$eraserpath/rocket-chip/emulator/emulator-freechips.rocketchip.system
     cd "$eraserpath"
 fi
 
-. "$eraserpath/eraser_setenv"
+echo "ERASER Setup OK"
