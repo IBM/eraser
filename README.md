@@ -153,7 +153,7 @@ session in a new shell.
   3. Generate binaries for testcases in bin folder:
 
      ```
-     cd testcases/bin && make src_dir=$ERASER_HOME/testcases/src	
+     cd $ERASER_HOME/testcases/bin && make src_dir=$ERASER_HOME/testcases/src	
      ```
 
      If compilation fails, ensure that you have installed the rocket-tools
@@ -199,13 +199,13 @@ session in a new shell.
   across instructions. The command to execute should be as the following:
 
   ```
-  perl $SERMINER_HOME/src/gen_latch_macro_ranking_riscv.pl <DIR CONTAINING VCD STATS> <OUTPUT DIR> <RESIDENCY THRESHOLD>
+  $SERMINER_HOME/src/gen_latch_macro_ranking_riscv.pl <DIR CONTAINING VCD STATS> <OUTPUT DIR> <RESIDENCY THRESHOLD>
   ```
 
   for example:
 
   ```
-  perl $SERMINER_HOME/src/gen_latch_macro_ranking_riscv.pl /tmp/VCD_STATS /tmp/VCD_OUT 0.99
+  $SERMINER_HOME/src/gen_latch_macro_ranking_riscv.pl /tmp/VCD_STATS /tmp/VCD_OUT 0.99
   ```
 
 * Generating the stressmarks. Once the estatistics for each instruction have
